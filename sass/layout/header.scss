@@ -261,3 +261,15 @@ header {
     }
   }
 }
+.heart__image {
+  position: relative;
+  p {
+    position: absolute;
+    top: 10px;
+    left: 18px;
+    color: rgb(205, 24, 24);
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+}

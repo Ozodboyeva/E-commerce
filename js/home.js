@@ -8,6 +8,16 @@ const anotherCard = document.querySelector(".all");
 const specialFormatCard = document.querySelector(".special__format-cards");
 const articleCard = document.querySelector(".article__cards");
 
+// Sorting data
+let promotions = [];
+allProducts.map((pr) => (pr.OnSale ? promotions.push(pr) : ""));
+// console.log(promotions);
+let anotherPromotions = [];
+allProducts.map((pr) => (pr.recentlyAdded ? anotherPromotions.push(pr) : ""));
+// console.log(anotherPromotions);
+let anotherCards = [];
+allProducts.map((pr) => (pr.OnSale ? anotherCards.push(pr) : ""));
+// divider
 dropdown.addEventListener("click", () => {
   drop.classList.toggle("d-none");
 });
@@ -54,13 +64,13 @@ function getPromotioncard({
                     <img src="./images/pages/index/star (1).png" alt="star" />
                     <img src="./images/pages/index/star (1).png" alt="star" />
                   </div>                
-                                
-                    
-                  
-                  <button class="promotion__btn">В корзину</button>
+                   <button class="promotion__btn">В корзину</button>
                 </div>
               </div>
-            </div>
+            </div>         
+                    
+                  
+                 
   `;
 }
 promotions.forEach((cards) => {

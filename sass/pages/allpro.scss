@@ -2,6 +2,8 @@
 @use "../global";
 @use "../utils/variables" as vrb;
 @use "../utils/mixins" as mxn;
+
+/* section codes */
 .part {
   padding-top: 100px;
   background-color: vrb.$global-background;
@@ -42,22 +44,31 @@
         display: inline-block;
         position: relative;
         bottom: 200px;
-        left: 290px;
-        @media (max-width: 1110px) {
-          bottom: 283px;
-          left: 360px;
-          @media (max-width: 1030px) {
-            bottom: 200px;
+        left: 270px;
+        border-radius: 4px;
+        .btn-product {
+          outline: none;
+          // background: white;
+          background-color: #f3f2f1;
+          padding: 6px 10px;
+          border-radius: 4px;
+
+          @media (max-width: 1110px) {
+            bottom: 283px;
             left: 360px;
             @media (max-width: 1030px) {
-              left: 340px;
-              @media (max-width: 800px) {
-                left: 310px;
-                @media (max-width: 760px) {
-                  left: 290px;
-                  @media (max-width: 700px) {
-                    left: 250px;
-                    bottom: 170px;
+              bottom: 200px;
+              left: 360px;
+              @media (max-width: 1030px) {
+                left: 340px;
+                @media (max-width: 800px) {
+                  left: 310px;
+                  @media (max-width: 760px) {
+                    left: 290px;
+                    @media (max-width: 700px) {
+                      left: 250px;
+                      bottom: 170px;
+                    }
                   }
                 }
               }
@@ -130,31 +141,31 @@
             display: flex;
             gap: 3px;
           }
-          .promotion__btn {
-            margin: 0 auto;
-            width: 100%;
-            margin-top: 8px;
-            padding: 4px 100px;
-            background-color: #fff;
-            border-radius: 4px;
-            border: 1px solid vrb.$btn-background;
-            color: vrb.$btn-background;
-            text-align: center;
-            font-family: Rubik;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 24px;
-            &:hover {
-              border-color: #fff;
-              color: #fff;
-              background: #f63;
-            }
+        }
+        .promotion__btn {
+          margin: 0 auto;
+          width: 100%;
+          margin-top: 8px;
+          padding: 4px 100px;
+          border-radius: 4px;
+          border: 1px solid vrb.$btn-background;
+          color: vrb.$btn-background;
+          text-align: center;
+          font-family: Rubik;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          background-color: white;
+          &:hover {
+            border-color: #fff;
+            color: #fff;
+            background: #f63;
           }
-          .parts {
-            background-color: #f63;
-            color: vrb.$background-color;
-          }
+        }
+        .parts {
+          background-color: #f63;
+          color: vrb.$background-color;
         }
       }
     }
@@ -188,6 +199,11 @@
   color: #666;
   cursor: not-allowed;
 }
+
+/* section codes done*/
+
+/* footer codes */
+
 .footer {
   padding: 40px 0px;
   background-image: url(/images/pages/index/bg.png);

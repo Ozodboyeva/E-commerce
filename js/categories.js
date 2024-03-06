@@ -10,7 +10,3 @@ function getCategoryCard({ name }) {
 categories.forEach((category) => {
   categoriesRow.innerHTML += getCategoryCard(category);
 });
-
-// function getCategory(name) {
-//   localStorage.setItem(CATEGORY, name);
-// }

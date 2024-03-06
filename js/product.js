@@ -6,7 +6,19 @@ let limit = 12;
 let page = 0;
 let pages;
 //mapping products
-function getallProduct({ name, category, description, price, rating, image }) {
+function getallProduct({
+  id,
+  name,
+  category,
+  description,
+  price,
+  rating,
+  image,
+}) {
+  let checkFavorite = favoriteProducts.find((el) => el.id === id);
+  // console.log(checkFavorite);
+  // console.log(checkFavorite);
+  // console.log(favoriteProducts);
   return `
    <div class="promotion__card">
               <div class="promotion__card__image">
@@ -16,7 +28,19 @@ function getallProduct({ name, category, description, price, rating, image }) {
                 />
               </div>
               <div class="promotion__dis">
-                <img src="../images/pages/index/heart.svg" alt="" />
+              <button onclick="addToFavourite(${id})"  class="btn-product ${
+    checkFavorite ? "favrouite-color" : "none"
+  } "
+   > ${
+     checkFavorite
+       ? `
+       <img src="../images/pages/index/heart-fill.svg" alt="" />
+     `
+       : `
+       <img src="../images/pages/index/heart.svg" alt="" />
+     `
+   }
+            </button>
               </div>
               <div class="promotion__discount">${name}</div>
               <div class="promotion__card__items">
@@ -50,13 +74,13 @@ function getallProduct({ name, category, description, price, rating, image }) {
 //searching codes
 function getProducts() {
   allProduct.innerHTML = "";
-  let searchProducts = productsall.filter((pr) =>
+  let searchProducts = allProducts.filter((pr) =>
     pr.name.toLowerCase().includes(search)
   );
   let start = page * limit;
   let end = start + limit;
-  searchProducts.slice(start, end).forEach((productsall) => {
-    let card = getallProduct(productsall);
+  searchProducts.slice(start, end).forEach((allProducts) => {
+    let card = getallProduct(allProducts);
     allProduct.innerHTML += card;
   });
 
@@ -98,3 +122,16 @@ searchInput.addEventListener("keyup", function () {
   getProducts();
 });
 // searching done
+//Add to favourite
+function addToFavourite(id) {
+  let checkFavorite = favoriteProducts.find((el) => el.id === id);
+  let product = allProducts.find((el) => el.id === id);
+  if (checkFavorite) {
+    favoriteProducts = favoriteProducts.filter((el) => el.id !== id);
+  } else {
+    favoriteProducts.push(product);
+  }
+  localStorage.setItem(FAVORITE, JSON.stringify(favoriteProducts));
+  getFavouriteNum();
+  getProducts();
+}
